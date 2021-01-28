@@ -1,13 +1,25 @@
 import Head from 'next/head';
+import PostList from '../components/PostList';
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=6`);
+  const posts = await res.json();
+
+  return {
+    props: {
+      posts
+    }
+  }
+}
+
+export default function Home({ posts }) {
   return (
     <div>
       <Head>
         <title>WebDev News</title>
         <meta name="keyworkds" content="web development, programming" />
       </Head>
-      <h1>Welcome to Next</h1>
+      <PostList posts={posts} />
     </div>
   )
 }
