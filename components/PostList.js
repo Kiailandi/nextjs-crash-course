@@ -1,10 +1,10 @@
-import React from 'react';
+import PostItem from './PostItem';
 import postStyles from '../styles/Post.module.css';
 
 const PostList = ({ posts }) => {
     return (
         <div className={postStyles.grid}>
-            {posts.map(post => <h3>{post.title}</h3>)}
+            {posts.map(post => <PostItem key={post.id} post={post} />)}
         </div>
     );
 }
