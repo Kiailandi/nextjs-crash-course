@@ -1,5 +1,4 @@
 import { server } from '../config';
-import Head from 'next/head';
 import PostList from '../components/PostList';
 
 // export const getStaticProps = async () => {
@@ -26,10 +25,6 @@ export const getStaticProps = async () => {
 export default function Home({ posts }) {
   return (
     <div>
-      <Head>
-        <title>WebDev News</title>
-        <meta name="keyworkds" content="web development, programming" />
-      </Head>
       <PostList posts={posts} />
     </div>
   )
